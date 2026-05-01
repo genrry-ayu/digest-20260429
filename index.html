@@ -133,7 +133,12 @@
   /* ── SECTION ── */
   .section {
     padding: 0 24px;
-    margin-bottom: 40px;
+    margin-bottom: 52px;
+  }
+  .section:last-of-type { margin-bottom: 0; }
+  .section:not(:first-of-type) {
+    padding-top: 52px;
+    border-top: 1px solid var(--divider);
   }
   .section-head {
     display: flex;
@@ -204,8 +209,8 @@
     font-weight: 600;
   }
   .insight-details {
-    margin-top: 14px;
-    padding-top: 14px;
+    margin-top: 18px;
+    padding-top: 16px;
     border-top: 1px solid var(--divider);
     cursor: pointer;
     display: flex;
@@ -241,7 +246,7 @@
   }
   .insight-details .arrow.open { transform: rotate(180deg); }
   .detail-body {
-    margin-top: 14px;
+    margin-top: 16px;
     display: none;
     font-size: 14px;
     color: var(--text-dim);
@@ -277,7 +282,7 @@
   .tweet-group {
     background: var(--surface);
     border-radius: var(--radius);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     border: 1px solid var(--divider);
     overflow: hidden;
     transition: border-color 0.2s;
