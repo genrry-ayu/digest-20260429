@@ -39,11 +39,22 @@
   .masthead::before {
     content: '';
     position: absolute;
-    top: -80px;
-    right: -80px;
-    width: 280px;
-    height: 280px;
-    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    top: -100px;
+    right: -60px;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .masthead::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: -40px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(255,255,255,0.02) 0%, transparent 60%);
     border-radius: 50%;
     pointer-events: none;
   }
@@ -59,11 +70,31 @@
     font-weight: 650;
     letter-spacing: -0.5px;
     line-height: 1.1;
+    margin-bottom: 32px;
   }
   .masthead h1 em {
+    display: block;
     font-style: normal;
     color: var(--text-dim);
     font-weight: 400;
+    margin-top: 6px;
+  }
+  .masthead .date-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .masthead .date-line .dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--text-faint);
+  }
+  .masthead .date-line span {
+    font-size: 13px;
+    color: var(--text-dim);
+    letter-spacing: 0.3px;
   }
   .masthead .meta {
     display: flex;
@@ -137,6 +168,12 @@
     padding: 20px;
     margin-bottom: 12px;
     border: 1px solid var(--divider);
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: default;
+  }
+  .insight-card:hover {
+    border-color: var(--divider-light);
+    transform: translateY(-1px);
   }
   .insight-card:last-child { margin-bottom: 0; }
   .insight-tag {
@@ -174,16 +211,33 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    user-select: none;
+    transition: opacity 0.15s;
   }
+  .insight-details:hover { opacity: 0.7; }
+  .insight-details:active { opacity: 0.5; }
   .insight-details span {
     font-size: 12px;
     color: var(--text-faint);
     letter-spacing: 0.5px;
+    position: relative;
   }
+  .insight-details span::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--text-faint);
+    transition: width 0.2s;
+  }
+  .insight-details:hover span::after { width: 100%; }
   .insight-details .arrow {
     font-size: 14px;
     color: var(--text-faint);
-    transition: transform 0.2s;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    line-height: 1;
   }
   .insight-details .arrow.open { transform: rotate(180deg); }
   .detail-body {
@@ -204,7 +258,9 @@
     padding: 18px;
     margin-bottom: 10px;
     border: 1px solid var(--divider);
+    transition: border-color 0.2s;
   }
+  .matter-card:hover { border-color: var(--divider-light); }
   .matter-card:last-child { margin-bottom: 0; }
   .matter-card h4 {
     font-size: 15px;
@@ -224,7 +280,9 @@
     margin-bottom: 10px;
     border: 1px solid var(--divider);
     overflow: hidden;
+    transition: border-color 0.2s;
   }
+  .tweet-group:hover { border-color: var(--divider-light); }
   .tweet-group-header {
     padding: 14px 18px 10px;
     border-bottom: 1px solid var(--divider);
@@ -249,8 +307,9 @@
   }
   .tweet-item:first-of-type { border-top: none; }
   .tweet-item p {
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text-dim);
   }
   .tweet-link {
     display: inline-block;
@@ -283,12 +342,12 @@
 <!-- ─── MASTHEAD ─── -->
 <div class="masthead">
   <div class="masthead-label">Builder Digest</div>
-  <h1>Agent-native arrives.<br><em>四月 29 日 · 2026</em></h1>
-  <div class="meta">
-    <span>14 Builders</span>
-    <span>34 Tweets</span>
-    <span>0 Podcasts</span>
+  <div class="date-line">
+    <span>2026 · 04 · 29</span>
+    <span class="dot"></span>
+    <span>34 tweets from 14 builders</span>
   </div>
+  <h1>Agent-native arrives.<br><em>Not just a concept. Product reality.</em></h1>
 </div>
 
 <!-- ─── STATS ─── -->
@@ -314,7 +373,7 @@
     <p>Dan Shipper 提出 <strong>"Codex-native"</strong>——专为 Agent 内置浏览器设计的产品。他用 Posthog inside Codex 的体验说明一切：Codex 直接写查询、看结果，比独立 Posthog 好太多。这不是功能堆叠，是交互范式的跃迁。</p>
     <p style="margin-top:8px;">同一天 Peter Steinberger 在每个 commit 上跑 Codex 做自动 review + 修 bug。Garry Tan 直言："听腻了 Agents？2026 年就是永恒九月。"</p>
     <div class="insight-details">
-      <span>查看原始推文</span>
+      <span>查看原文</span>
       <span class="arrow">↓</span>
     </div>
     <div class="detail-body">
@@ -330,7 +389,7 @@
     <p>Claude 发布了一批新连接器：<strong>Adobe Creative Cloud、Ableton、Splice、Canva、Blender、Autodesk Fusion</strong>。这不是凑接口数量的宣发——从设计到音视频到 3D，从平面到工业设计，Anthropic 在认真争取"创作型用户"。</p>
     <p style="margin-top:8px;">尤其 Blender 连接器：调试场景、构建新工具、批量渲染——这些是以前需要写 Python 脚本才能做的事。</p>
     <div class="insight-details">
-      <span>查看原始推文</span>
+      <span>查看原文</span>
       <span class="arrow">↓</span>
     </div>
     <div class="detail-body">
@@ -343,7 +402,7 @@
     <h3>Vercel 说"为 AI 建工具"，<br><em>不是为人类</em></h3>
     <p>CEO Guillermo Rauch 公开组建 <strong>Vercel Labs</strong>，使命简明："我们过去为人建工具，现在为 AI 建。"这句话背后是 DevTools 行业的一次重新定向：谁在构建 AI 时代的开发者基础设施？</p>
     <div class="insight-details">
-      <span>查看原始推文</span>
+      <span>查看原文</span>
       <span class="arrow">↓</span>
     </div>
     <div class="detail-body">
@@ -356,7 +415,7 @@
     <h3>免费 SaaS 的算力成本困境<br><em>正在暴露</em></h3>
     <p>Replit CEO Amjad Masad 评论 GitHub 的免费服务在 AI 时代的成本压力："能保持在线已经很厉害了"。同一议程上，Stripe 的数据显示 AI 公司免费试用背后 $25 的真实算力成本——免费模式的单位经济正在被推理成本挤压。</p>
     <div class="insight-details">
-      <span>查看原始推文</span>
+      <span>查看原文</span>
       <span class="arrow">↓</span>
     </div>
     <div class="detail-body">
@@ -369,7 +428,7 @@
     <h3>从 GUI 到"发仓库链接就够"<br><em>设计工具正在去中心化</em></h3>
     <p>Zara Zhang 一针见血："以前用 GUI 构建 web 应用，现在直接分享仓库代码，让人自定义 UI。"同期 Zara 还提出让 AI 生成 SVG 而非图片——矢量插图无缝融入设计风格。独立 Builder 生态正在成型。</p>
     <div class="insight-details">
-      <span>查看原始推文</span>
+      <span>查看原文</span>
       <span class="arrow">↓</span>
     </div>
     <div class="detail-body">
@@ -583,8 +642,9 @@ document.querySelectorAll('.insight-details').forEach(el => {
     if (body && body.classList.contains('detail-body')) {
       body.classList.toggle('show');
       arrow.classList.toggle('open');
-      this.querySelector('span:first-child').textContent =
-        body.classList.contains('show') ? '收起 ↑' : '查看原始推文';
+      var label = this.querySelector('span:first-child');
+    if (label) label.textContent =
+        body.classList.contains('show') ? '收起 ↑' : '查看原文';
     }
   });
 });
