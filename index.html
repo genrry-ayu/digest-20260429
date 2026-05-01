@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Builder Digest — 2026.04.29</title>
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #141414;
+    --border: #222;
+    --white: #f0f0f0;
+    --gray-300: #ccc;
+    --gray-400: #999;
+    --gray-500: #666;
+    --gray-600: #444;
+    --gray-700: #333;
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "PingFang SC", "Helvetica Neue", sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    line-height: 1.6;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    font-size: 17px;
+  }
+  .header { padding: 40px 20px 24px; border-bottom: 1px solid var(--gray-700); }
+  .header h1 { font-size: 28px; font-weight: 700; }
+  .header .subtitle { font-size: 16px; color: var(--gray-500); margin-top: 6px; }
+  .header .meta-row { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+  .header .badge { font-size: 13px; padding: 5px 14px; border-radius: 20px; border: 1px solid var(--gray-600); color: var(--gray-400); font-weight: 500; }
+  .section { padding: 20px; border-bottom: 1px solid var(--gray-700); }
+  .section-title { font-size: 14px; font-weight: 600; color: var(--gray-400); margin-bottom: 14px; letter-spacing: 1px; }
+  .highlight-box { background: var(--surface); border-radius: var(--radius); padding: 18px; margin-bottom: 14px; border: 1px solid var(--border); }
+  .highlight-box:last-child { margin-bottom: 0; }
+  .highlight-label { font-size: 13px; font-weight: 600; color: var(--gray-300); margin-bottom: 10px; letter-spacing: 0.5px; }
+  .highlight-box p { font-size: 17px; line-height: 1.65; color: var(--white); }
+  .highlight-box p strong { color: var(--white); font-weight: 700; }
+  .detail-toggle { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); cursor: pointer; }
+  .detail-toggle span { font-size: 14px; color: var(--gray-500); }
+  .detail-content { margin-top: 12px; display: none; font-size: 15px; color: var(--gray-400); line-height: 1.7; }
+  .detail-content.show { display: block; }
+  .detail-content p { margin-bottom: 6px; }
+  .card { background: var(--surface); border-radius: var(--radius); padding: 16px; margin-bottom: 10px; border: 1px solid var(--border); }
+  .card-name { font-size: 18px; font-weight: 600; }
+  .card-name .tag { font-size: 14px; color: var(--gray-500); font-weight: 400; }
+  .card-role { font-size: 14px; color: var(--gray-500); margin-top: 3px; }
+  .tweet-list { margin-top: 10px; }
+  .tweet-item { padding: 10px 0; border-top: 1px solid var(--border); }
+  .tweet-item:first-child { border-top: none; padding-top: 0; }
+  .tweet-text { font-size: 17px; line-height: 1.6; }
+  .tweet-text strong { color: var(--white); }
+  .tweet-link { display: inline-block; font-size: 13px; color: var(--gray-400); text-decoration: none; margin-top: 5px; }
+  .stats-strip { display: flex; gap: 10px; padding: 14px 20px; overflow-x: auto; -webkit-overflow-scrolling: touch; border-bottom: 1px solid var(--gray-700); }
+  .stats-strip::-webkit-scrollbar { display: none; }
+  .stat-pill { flex-shrink: 0; padding: 7px 16px; border-radius: 20px; background: var(--surface); border: 1px solid var(--gray-600); font-size: 15px; font-weight: 500; color: var(--gray-400); }
+  .stat-pill .num { color: var(--gray-300); font-weight: 700; }
+  .footer { padding: 20px; text-align: center; font-size: 13px; color: var(--gray-600); }
+  .footer a { color: var(--gray-500); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>AI Builder Digest</h1>
+  <div class="subtitle">2026 年 4 月 29 日 · 34 条推文 · 14 位 Builder</div>
+  <div class="meta-row">
+    <span class="badge">14 Builders</span>
+    <span class="badge">0 Podcasts</span>
+    <span class="badge">0 Blogs</span>
+  </div>
+</div>
+
+<div class="stats-strip">
+  <div class="stat-pill">推文 34</div>
+  <div class="stat-pill">播客 0 期</div>
+</div>
+
+<!-- Signals -->
+<div class="section">
+  <div class="section-title">今日关键信号</div>
+
+  <div class="highlight-box">
+    <div class="highlight-label">信号 1 · Agent-native 时代来临</div>
+    <p>Dan Shipper 提出 <strong>"Codex-native"</strong> 概念——应用设计成在 Agent 内置浏览器里使用。Peter Steinberger 已在每个 commit 上跑 Codex 做自动 review + 修 bug。Llama 创始人说 2026 年对"听腻 Agents"的人来说是"永恒九月"。</p>
+    <div class="detail-toggle"><span>展开详情 →</span></div>
+    <div class="detail-content">
+      <p><strong>Dan Shipper</strong> — 用 Posthog inside Codex，体验远超独立使用。Codex 可以写查询并看结果，Agent-native 产品会重新定义 UI。</p>
+      <p><strong>Peter Steinberger</strong> — Codex 跑在每个 commit 上做回归和安全隐患检测，上线 10 分钟就发现了多个问题，自动提 PR 修复。</p>
+      <p><strong>Garry Tan</strong> — "如果你们听腻了 Agents，2026 年就是你们的永恒九月"（意为只会越来越密集）</p>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <div class="highlight-label">信号 2 · Claude 全面渗透创意工具链</div>
+    <p>Claude 官方宣布了一批新连接器：<strong>Adobe Creative Cloud、Ableton、Splice、Canva、Blender</strong> 等。设计师和工程师现在可以通过对话修改 3D 模型、调试 Blender 场景、批量处理素材。</p>
+  </div>
+
+  <div class="highlight-box">
+    <div class="highlight-label">信号 3 · Vercel Labs 组建 AI 时代 DevTools 团队</div>
+    <p>CEO Guillermo Rauch 公开招聘 Vercel Labs 团队，使命是"构建 AI 时代的开发者工具"——为 AI 而不是为人类构建工具。这是一条值得跟踪的信号线。</p>
+  </div>
+
+  <div class="highlight-box">
+    <div class="highlight-label">信号 4 · GitHub 增长压力 + SaaS 免费模式困境</div>
+    <p>Replit CEO Amjad Masad 评论 GitHub 增长压力——免费服务的成本在 AI 时代变得不可持续。这与前一天的 Stripe 播客中关于欺诈/成本的数据形成呼应。</p>
+    <div class="detail-toggle"><span>展开详情 →</span></div>
+    <div class="detail-content">
+      <p>Amjad 说："免费服务会变得不可持续"——推理成本让每个免费用户都有实质性的计算开销。</p>
+      <p>同日 Zara Zhang 也在讨论从 GUI 构建转向"共享仓库代码即可自定义 UI"的模式，这是个设计工具民主化的信号。</p>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <div class="highlight-label">信号 5 · 全职独立 Builder 时代的开始</div>
+    <p>Peter Yang 表示"非常尊重全职独立 AI Builder——世界现在是他们的游乐场"。同日 Nikunj 记录了一个有趣的场景：创始人在 Tier 1 VC 那里一圈会议后，真实感言曝光。</p>
+  </div>
+</div>
+
+<!-- X/Twitter -->
+<div class="section">
+  <div class="section-title">X / Twitter</div>
+
+  <div class="card">
+    <div class="card-name">Peter Yang <span class="tag">@petergyang</span></div>
+    <div class="card-role">Product @ Roblox · Practical AI tutorials</div>
+    <div class="tweet-list">
+      <div class="tweet-item"><p class="tweet-text">个人 Agent 的实操好点子，从他自己的 OpenClaw 偷师了</p><a class="tweet-link" href="https://x.com/petergyang/status/2049347897310003443">查看原文 ↗</a></div>
+      <div class="tweet-item"><p class="tweet-text">"非常尊重全职独立 AI Builder——世界现在是他们的游乐场"</p><a class="tweet-link" href="https://x.com/petergyang/status/2049345724559847585">查看原文 ↗</a></div>
+      <div class="tweet-item"><p class="tweet-text">用 AI 模型能"一把过"什么年代的电子游戏来衡量能力——Atari / NES / SNES</p><a class="tweet-link" href="https://x.com/petergyang/status/2049232534064734331">查看原文 ↗</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Nan Yu <span class="tag">@thenanyu</span></div>
+    <div class="card-role">Head of Product @ Linear</div>
+    <div class="tweet-list">
+      <div class="tweet-item"><p class="tweet-text">"拥有过剩计算资源的奢侈"——<a class="tweet-link" href="https://x.com/thenanyu/status/2049075513444999515">查看原文 ↗</a></p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Thariq <span class="tag">@trq212</span></div>
+    <div class="card-role">Claude Code @ Anthropic</div>
+    <div class="tweet-list">
+      <div class="tweet-item"><p class="tweet-text">Claude Code 大文件写入时看似挂起的 bug 终于定位到了 😭</p><a class="tweet-link" href="https://x.com/trq212/status/2049252080892973563">查看原文 ↗</a></div>
+      <div class="tweet-item"><p class="tweet-text">正在优化无闪烁渲染器，目标设为默认渲染器</p><a class="tweet-link" href="https://x.com/trq212/status/2049234229926695188">查看原文 ↗</a></div>
+      <div class="tweet-item"><p class="tweet-text">正在排查 Claude Code 最顽固的 bug，欢迎提供"白鲸"</p><a class="tweet-link" href="https://x.com/trq212/status/2049234228290961690">查看原文 ↗</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Amjad Masad <span class="tag">@amasad</span></div>
+    <div class="card-role">CEO @ Replit</div>
+    <div class="tweet-list">
+      <div class="tweet-item"><p class="tweet-text">支持教育事业——教育界 GOAT 在重新定义教育</p><a class="tweet-link" href="https://x.com/amasad/status/2049245424624820412">查看原文 ↗</a></div>
+      <div class="tweet-item"><p class="tweet-text">GitHub 在这种情况下还能保持服务在线已经很厉害了——免费服务在 AI 时代成本不可持续</p><a class="tweet-link" href="https://x.com/amasad/status/2049242460078100638">查看原文 ↗</a></div>
+      <div class="tweet-item"><p class="tweet-text">AI 做的幻灯片效果很好——以前花钱找人做，现在自己就能搞了</p><a class="tweet-link" href="https://x.com/amasad/status/2049168449709170874">查看原文 ↗</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Guillermo Rauch <span class="tag">@rauchg</span></div>
+    <div class="card-role">CEO @ Vercel</div>
+    <div class="tweet-list">
+      <div class="tweet-item"><p class="tweet-text">"我们曾经为人类构建工具，现在为 AI 构建"——Vercel Labs 正在招聘 AI 时代 DevTools 团队</p><a class="tweet-link" href="https://x.com/rauchg/status/2049216048831025232">查看原文 ↗</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Aaron Levie <span class="tag">@levie</span></div>
+    <div class="card-role">CEO @ Box</div>
+    <div class="tweet-list">
+      <div class="tweet-item"><p class="tweet-text">"软件工作不会消失。Agent 是技术人员历史上最大的杠杆，可能是史上最大的。"</p><a class="tweet-link" href="https://x.com/levie/status/2049333853777764495">查看原文 ↗</a></div>
+      <div class="tweet-item"><p class="tweet-text">Agentic coding 是开发者的福音，IT 人员可以构建更多内部系统</p><a class="tweet-link" href="https://x.com/levie/status/2049163935182733396">查看原文 ↗</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Garry Tan <span class="tag">@garrytan</span></div>
+    <div class="card-role">President & CEO @ Y Combinator</div>
+    <div class="tweet-list">
+      <div class="tweet-item"><p class="tweet-text">"听腻了 Agents？2026 年就是你们的永恒九月"（暗示 Agents 只会更猛）</p><a class="tweet-link" href="https://x.com/garrytan/status/2049351894007710031">查看原文 ↗</a></div>
+      <div class="tweet-item"><p class="tweet-text">"这居然能用？"——show don't tell</p><a class="tweet-link" href="https://x.com/garrytan/status/2049334723009458388">查看原文 ↗</a></div>
+      <div class="tweet-item"><p class="tweet-text">AlphaGo 10 周年纪念</p><a class="tweet-link" href="https://x.com/garrytan/status/2049297833594101943">查看原文 ↗</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Zara Zhang <span class="tag">@zarazhangrui</span></div>
+    <div class="card-role">Builder</div>
+    <div class="tweet-list">
+      <div class="tweet-item"><p class="tweet-text">别让 AI 生成图片，让它生成 SVG——矢量插图无缝融入设计风格</p><a class="tweet-link" href="https://x.com/zarazhangrui/status/2049258231042805806">查看原文 ↗</a></div>
+      <div class="tweet-item"><p class="tweet-text">"以前用 GUI 构建 web 应用，现在直接分享仓库代码，让人自定义 UI"</p><a class="tweet-link" href="https://x.com/zarazhangrui/status/2049186121314415054">查看原文 ↗</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Nikunj Kothari <span class="tag">@nikunj</span></div>
+    <div class="card-role">Partner @ FPV Ventures</div>
+    <div class="tweet-list">
+      <div class="tweet-item"><p class="tweet-text">"有没有听我的？"——https://x.com/nikunj/status/2049337947066183856</p><a class="tweet-link" href="https://x.com/nikunj/status/2049337947066183856">查看原文 ↗</a></div>
+      <div class="tweet-item"><p class="tweet-text">建这个按钮太开心了——微交互的快乐</p><a class="tweet-link" href="https://x.com/nikunj/status/2049228229572256236">查看原文 ↗</a></div>
+      <div class="tweet-item"><p class="tweet-text">创始人圈的真实对话曝光——"我和所有 Tier 1 VC 都聊过了，有第二回合" vs 投资人的真实反应</p><a class="tweet-link" href="https://x.com/nikunj/status/2049179647519125976">查看原文 ↗</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Peter Steinberger <span class="tag">@steipete</span></div>
+    <div class="card-role">OpenClaw · ClawFather</div>
+    <div class="tweet-list">
+      <div class="tweet-item"><p class="tweet-text">Codex 跑在每个 commit 上做 review，发现 bug 自动提 PR 修复</p><a class="tweet-link" href="https://x.com/steipete/status/2049356949523730699">查看原文 ↗</a></div>
+      <div class="tweet-item"><p class="tweet-text">每个 commit 到 main 就起一个 Codex 实例做回归/安全检测——上线 10 分钟就发现了</p><a class="tweet-link" href="https://x.com/steipete/status/2049290741013262522">查看原文 ↗</a></div>
+      <div class="tweet-item"><p class="tweet-text">"我闻到了泄露的味道"</p><a class="tweet-link" href="https://x.com/steipete/status/2049290265026773172">查看原文 ↗</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Dan Shipper <span class="tag">@danshipper</span></div>
+    <div class="card-role">CEO @ Every</div>
+    <div class="tweet-list">
+      <div class="tweet-item"><p class="tweet-text">在 Codex 里用 Posthog——体验远超独立使用，Codex 可以直接写查询看结果</p><a class="tweet-link" href="https://x.com/danshipper/status/2049236793761976357">查看原文 ↗</a></div>
+      <div class="tweet-item"><p class="tweet-text">"我们需要一个新词：Codex-native / Cowork-native / Cursor-native——专为 Agent 内置浏览器设计的产品"</p><a class="tweet-link" href="https://x.com/danshipper/status/2049223943735726150">查看原文 ↗</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Aditya Agarwal <span class="tag">@adityaag</span></div>
+    <div class="card-role">GP @ South Park Commons · Co-Founder Bevel Health</div>
+    <div class="tweet-list">
+      <div class="tweet-item"><p class="tweet-text">"我无法形容这有多棒"</p><a class="tweet-link" href="https://x.com/adityaag/status/2049259492727234748">查看原文 ↗</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Sam Altman <span class="tag">@sama</span></div>
+    <div class="card-role">CEO @ OpenAI</div>
+    <div class="tweet-list">
+      <div class="tweet-item"><p class="tweet-text">"Enjoy the next few updates"——暗示动作会加快</p><a class="tweet-link" href="https://x.com/sama/status/2049315574120055054">查看原文 ↗</a></div>
+      <div class="tweet-item"><p class="tweet-text">两条转推/引用</p><a class="tweet-link" href="https://x.com/sama/status/2049241518540808440">查看原文 ↗</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-name">Claude <span class="tag">@claudeai</span></div>
+    <div class="card-role">Anthropic</div>
+    <div class="tweet-list">
+      <div class="tweet-item"><p class="tweet-text"><strong>Claude 创意工具连接器发布</strong> — Adobe Creative Cloud / Ableton / Splice / Canva / Affinity / SketchUp / Resolume，并加入了 Blender 开发者计划</p><a class="tweet-link" href="https://x.com/claudeai/status/2049143442601546054">查看原文 ↗</a></div>
+      <div class="tweet-item"><p class="tweet-text">Autodesk Fusion 连接器：设计师和工程师通过对话创建/修改 3D 模型</p><a class="tweet-link" href="https://x.com/claudeai/status/2049143440508616863">查看原文 ↗</a></div>
+      <div class="tweet-item"><p class="tweet-text">Blender 连接器：调试场景、构建新工具、批量渲染</p><a class="tweet-link" href="https://x.com/claudeai/status/2049143438281445811">查看原文 ↗</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- Why It Matters -->
+<div class="section">
+  <div class="section-title">Why It Matters</div>
+
+  <div class="highlight-box" style="margin-bottom:10px;">
+    <p><strong>Agent-native 是个真命题</strong> — Dan 提出"Codex-native"不是概念游戏。Posthog inside Codex 这种体验差异会逐渐变成新常态。如果你在做产品设计，注意你的产品是否能被 Agent "使用"而不是只被人类"浏览"。</p>
+  </div>
+  <div class="highlight-box" style="margin-bottom:10px;">
+    <p><strong>Claude 的创意工具链布局是战略信号</strong> — 不是凑接口数量。Adobe + Ableton + Blender 覆盖了从设计到音视频到 3D 的完整创意工作流。Anthropic 在认真抢设计师用户群。</p>
+  </div>
+  <div class="highlight-box" style="margin-bottom:10px;">
+    <p><strong>AI 时代的 DevTools 竞赛开始</strong> — Vercel Labs 公开说"从为人建工具变成给 AI 建工具"。这会在未来 12 个月催生新的工具品类。</p>
+  </div>
+  <div class="highlight-box">
+    <p><strong>GitHub / SaaS 免费模式的 AI 成本困境</strong> — 这和前一天的 Stripe 欺诈数据连起来看：AI 时代的单位经济模型还没找到平衡点。免费试用、计算被盗、API 成本——所有这些都在挤压"免费+付费"的传统模式。</p>
+  </div>
+</div>
+
+<div class="footer">
+  Generated through <a href="https://github.com/zarazhangrui/follow-builders">Follow Builders</a>
+</div>
+
+<script>
+document.querySelectorAll('.detail-toggle').forEach(el => {
+  el.addEventListener('click', function() {
+    const content = this.nextElementSibling;
+    if (content && content.classList.contains('detail-content')) {
+      content.classList.toggle('show');
+      this.querySelector('span').textContent =
+        content.classList.contains('show') ? '收起详情 ↑' : '展开详情 →';
+    }
+  });
+});
+</script>
+</body>
+</html>
